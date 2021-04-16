@@ -1,0 +1,11 @@
+nginx:
+  restart: unless-stopped
+  volumes:
+    - ./public/:/usr/src/public
+    - ./docker/nginx/prod.conf:/etc/nginx/conf.d/default.conf:ro
+    - ./docker/nginx/certs:/etc/nginx/certs
+  ports:
+    - "80:80"
+    - "443:443"
+  depends_on:
+    - php

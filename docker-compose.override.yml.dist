@@ -1,0 +1,13 @@
+version: "3.3"
+
+services:
+  adminer:
+    image: adminer
+    restart: on-failure
+
+  node:
+    image: node:10
+    volumes:
+      - .:/home/node/app
+    working_dir: /home/node/app
+    user:
