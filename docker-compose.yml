@@ -19,7 +19,7 @@ services:
     restart: on-failure
     environment:
       APP_ENV: ${APP_ENV}
-      SYMFONY_VERSION: ${SYMFONY_VERSION:-}
+      SYMFONY_VERSION: ${SYMFONY_VERSION:-5.2.*}
     volumes:
       - .:/usr/src/
       - ./docker/php/custom.ini:/usr/local/etc/php/conf.d/custom.ini
