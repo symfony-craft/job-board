@@ -9,7 +9,7 @@ use App\Tests\InMemory\Query\InMemorySelectAllTheFreeRoomsQuery;
 use App\Tests\InMemory\Repository\InMemoryRoomRepository;
 use PHPUnit\Framework\TestCase;
 
-class RetrieveAllTheFreeRoomsQueryTest extends TestCase
+class RetrieveAllTheFreeRoomsQueryHandlerTest extends TestCase
 {
     public function testThatItShouldRetrieveAllTheFreeRooms()
     {
