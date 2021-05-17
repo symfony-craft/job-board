@@ -17,7 +17,12 @@ services:
         resource: '../src/Infrastructure/Controller/'
         tags: ['controller.service_arguments']
 
-    App\Infrastructure\BusDispatcher\QueryBusDispatcher:
+    _instanceof:
+        App\Application\Query\QueryHandler:
+            tags:
+                - { name: messenger.message_handler, bus: query.bus }
+
+    App\Infrastructure\Bus\QueryBusDispatcher:
         arguments:
             $handlers: !tagged ddd.query_handler
 

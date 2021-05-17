@@ -14,14 +14,8 @@ class RetrieveAllTheFreeRoomsQueryHandler implements QueryHandler
         $this->selectAllTheFreeRoomsQuery = $selectAllTheFreeRoomsQuery;
     }
 
-    public function handle(Query $query): array
+    public function __invoke(Query $query): array
     {
         return $this->selectAllTheFreeRoomsQuery->execute();
     }
-
-    public function listenTo(): string
-    {
-        return RetrieveAllTheFreeRoomsQuery::class;
-    }
-
 }
