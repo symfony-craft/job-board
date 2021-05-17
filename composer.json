@@ -60,5 +60,8 @@
       "require": "5.2.*",
       "docker": true
     }
+  },
+  "require-dev": {
+    "spatie/phpunit-watcher": "^1.23"
   }
 }

@@ -1,4 +1,13 @@
 {
+    "clue/stdio-react": {
+        "version": "v2.4.0"
+    },
+    "clue/term-react": {
+        "version": "v1.3.0"
+    },
+    "clue/utf8-react": {
+        "version": "v1.2.0"
+    },
     "doctrine/annotations": {
         "version": "1.0",
         "recipe": {
@@ -14,6 +23,12 @@
     "doctrine/lexer": {
         "version": "1.2.1"
     },
+    "evenement/evenement": {
+        "version": "v3.0.1"
+    },
+    "jolicode/jolinotif": {
+        "version": "v2.3.0"
+    },
     "psr/cache": {
         "version": "1.0.1"
     },
@@ -26,6 +41,12 @@
     "psr/log": {
         "version": "1.1.4"
     },
+    "react/event-loop": {
+        "version": "v1.1.1"
+    },
+    "react/stream": {
+        "version": "v1.1.1"
+    },
     "sensio/framework-extra-bundle": {
         "version": "5.2",
         "recipe": {
@@ -37,6 +58,9 @@
         "files": [
             "config/packages/sensio_framework_extra.yaml"
         ]
+    },
+    "spatie/phpunit-watcher": {
+        "version": "1.23.2"
     },
     "symfony/browser-kit": {
         "version": "v5.2.7"
@@ -163,6 +187,9 @@
     "symfony/polyfill-php80": {
         "version": "v1.22.1"
     },
+    "symfony/process": {
+        "version": "v5.2.7"
+    },
     "symfony/routing": {
         "version": "5.1",
         "recipe": {
@@ -194,5 +221,8 @@
     },
     "symfony/yaml": {
         "version": "v5.2.7"
+    },
+    "yosymfony/resource-watcher": {
+        "version": "v2.0.1"
     }
 }

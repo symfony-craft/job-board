@@ -17,8 +17,10 @@ services:
         resource: '../src/Infrastructure/Controller/'
         tags: ['controller.service_arguments']
 
-    App\Infrastructure\CommandBus\CommandBusDispatcher:
+    App\Infrastructure\BusDispatcher\QueryBusDispatcher:
         arguments:
-            $handlers: !tagged ddd.command_handler
+            $handlers: !tagged ddd.query_handler
 
+    App\Infrastructure\Persistence\Dbal\Query\DbalSelectAllTheFreeRoomsQuery: ~
 
+    App\Application\Query\RetrieveAllTheFreeRooms\SelectAllTheFreeRoomsQuery: '@App\Infrastructure\Persistence\Dbal\Query\DbalSelectAllTheFreeRoomsQuery'

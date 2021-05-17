@@ -6,14 +6,13 @@ use App\Application\Query\RetrieveAllTheFreeRooms\RetrieveAllTheFreeRoomsQueryHa
 use App\Application\Query\RetrieveAllTheFreeRooms\RetrieveAllTheFreeRoomsQuery;
 use App\Domain\Room;
 use App\Tests\InMemory\Query\InMemorySelectAllTheFreeRoomsQuery;
-use App\Tests\InMemory\Repository\InMemoryRoomRepository;
 use PHPUnit\Framework\TestCase;
 
 class RetrieveAllTheFreeRoomsQueryHandlerTest extends TestCase
 {
     public function testThatItShouldRetrieveAllTheFreeRooms()
     {
-        // Given the rooms 45, 47 and 32 are free
+        // Given the rooms 45 and 47 are free
         $roomInformations = [
             [
                 'number' => '45',
@@ -55,6 +54,7 @@ class RetrieveAllTheFreeRoomsQueryHandlerTest extends TestCase
                     $this->assertEquals($roomInformation['name'], $roomViewModel->name);
                     $this->assertEquals($roomInformation['bedNumber'], $roomViewModel->bedNumber);
                     $this->assertEquals($roomInformation['price'], $roomViewModel->price);
+
                 }
             }
         }

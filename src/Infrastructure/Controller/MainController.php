@@ -2,10 +2,9 @@
 
 namespace App\Infrastructure\Controller;
 
-use App\Application\Command\TestCommand\TestCommand;
-use App\Infrastructure\CommandBus\CommandBusDispatcher;
+use App\Application\Query\RetrieveAllTheFreeRooms\RetrieveAllTheFreeRoomsQuery;
+use App\Infrastructure\BusDispatcher\QueryBusDispatcher;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\Routing\Annotation\Route;
 
 class MainController extends AbstractController
@@ -13,13 +12,8 @@ class MainController extends AbstractController
     /**
      * @Route("/", name="index")
      */
-    public function index(CommandBusDispatcher $commandBusDispatcher)
+    public function index(QueryBusDispatcher $queryBusDispatcher)
     {
-        $testCommand = new TestCommand();
-        $testCommand->message = "Hello World !";
-
-        return $this->json([
-            'TestCommand' => $commandBusDispatcher->dispatch($testCommand)
-        ]);
+        return $this->json($queryBusDispatcher->dispatch(new RetrieveAllTheFreeRoomsQuery()));
     }
 }

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Tests\InMemory\Query;
+namespace App\Application\Query\RetrieveAllTheFreeRooms;
 
 class RetrieveAllTheFreeRoomsViewModel
 {

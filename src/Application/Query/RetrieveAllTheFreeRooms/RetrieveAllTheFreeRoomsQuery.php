@@ -2,6 +2,8 @@
 
 namespace App\Application\Query\RetrieveAllTheFreeRooms;
 
-class RetrieveAllTheFreeRoomsQuery
+use App\Application\Query\Query;
+
+class RetrieveAllTheFreeRoomsQuery implements Query
 {
 }

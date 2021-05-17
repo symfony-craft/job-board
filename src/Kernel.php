@@ -2,7 +2,7 @@
 
 namespace App;
 
-use App\Application\Command\CommandHandler;
+use App\Application\Query\QueryHandler;
 use Symfony\Bundle\FrameworkBundle\Kernel\MicroKernelTrait;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\Loader\Configurator\ContainerConfigurator;
@@ -41,8 +41,8 @@ class Kernel extends BaseKernel
     protected function build(ContainerBuilder $container)
     {
         $container
-            ->registerForAutoconfiguration(CommandHandler::class)
-            ->addTag('ddd.command_handler');
+            ->registerForAutoconfiguration(QueryHandler::class)
+            ->addTag('ddd.query_handler');
     }
 
 }

@@ -2,7 +2,10 @@
 
 namespace App\Application\Query\RetrieveAllTheFreeRooms;
 
-class RetrieveAllTheFreeRoomsQueryHandler
+use App\Application\Query\Query;
+use App\Application\Query\QueryHandler;
+
+class RetrieveAllTheFreeRoomsQueryHandler implements QueryHandler
 {
     private SelectAllTheFreeRoomsQuery $selectAllTheFreeRoomsQuery;
 
@@ -11,8 +14,14 @@ class RetrieveAllTheFreeRoomsQueryHandler
         $this->selectAllTheFreeRoomsQuery = $selectAllTheFreeRoomsQuery;
     }
 
-    public function handle(RetrieveAllTheFreeRoomsQuery $query): array
+    public function handle(Query $query): array
     {
         return $this->selectAllTheFreeRoomsQuery->execute();
     }
+
+    public function listenTo(): string
+    {
+        return RetrieveAllTheFreeRoomsQuery::class;
+    }
+
 }
