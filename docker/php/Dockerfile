@@ -21,6 +21,7 @@ RUN set -eux; \
 	    icu-dev \
 	    libzip-dev \
 	    zlib-dev \
+	    postgresql-dev \
 	; \
 	\
 	docker-php-ext-configure zip; \
@@ -29,7 +30,7 @@ RUN set -eux; \
 	    zip \
         pdo \
         mysqli \
-        pdo_mysql \
+        pdo_pgsql \
 	; \
 	pecl install \
 	    apcu-${APCU_VERSION} \

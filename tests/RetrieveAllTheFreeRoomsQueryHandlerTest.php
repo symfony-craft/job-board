@@ -4,7 +4,6 @@ namespace App\Tests;
 
 use App\Application\Query\RetrieveAllTheFreeRooms\RetrieveAllTheFreeRoomsQueryHandler;
 use App\Application\Query\RetrieveAllTheFreeRooms\RetrieveAllTheFreeRoomsQuery;
-use App\Domain\Room;
 use App\Tests\InMemory\Query\InMemorySelectAllTheFreeRoomsQuery;
 use PHPUnit\Framework\TestCase;
 

@@ -10,7 +10,7 @@
 ###< symfony/framework-bundle ###
 
 ###> data ###
-/data/*
+./data
 ###> data ###
 
 ###> symfony/phpunit-bridge ###
