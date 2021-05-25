@@ -2,8 +2,8 @@
 
 namespace App\Tests\Query\RetrieveAllTheFreeRooms;
 
-use App\Application\Query\RetrieveAllTheFreeRooms\RetrieveAllTheFreeRoomsQueryHandler;
-use App\Application\Query\RetrieveAllTheFreeRooms\RetrieveAllTheFreeRoomsQuery;
+use App\Application\Query\RetrieveAllTheFreeRooms\RetrieveAllTheRoomsQueryHandler;
+use App\Application\Query\RetrieveAllTheFreeRooms\RetrieveAllTheRoomsQuery;
 use PHPUnit\Framework\TestCase;
 
 class RetrieveAllTheFreeRoomsTest extends TestCase
@@ -36,9 +36,9 @@ class RetrieveAllTheFreeRoomsTest extends TestCase
         ];
 
         // When I retrieve all the free rooms
-        $query = new RetrieveAllTheFreeRoomsQuery();
-        $selectQuery = new InMemorySelectAllTheFreeRoomsQuery($roomInformations);
-        $queryHandler = new RetrieveAllTheFreeRoomsQueryHandler($selectQuery);
+        $query = new RetrieveAllTheRoomsQuery();
+        $selectQuery = new InMemorySelectAllTheRoomsQuery($roomInformations);
+        $queryHandler = new RetrieveAllTheRoomsQueryHandler($selectQuery);
 
         $retrieveAllTheFreeRoomsViewModels = $queryHandler($query);
 

@@ -5,11 +5,11 @@ namespace App\Application\Query\RetrieveAllTheFreeRooms;
 use App\Application\Query\Query;
 use App\Application\Query\QueryHandler;
 
-class RetrieveAllTheFreeRoomsQueryHandler implements QueryHandler
+class RetrieveAllTheRoomsQueryHandler implements QueryHandler
 {
-    private SelectAllTheFreeRoomsQuery $selectAllTheFreeRoomsQuery;
+    private SelectAllTheRoomsQuery $selectAllTheFreeRoomsQuery;
 
-    public function __construct(SelectAllTheFreeRoomsQuery $selectAllTheFreeRoomsQuery)
+    public function __construct(SelectAllTheRoomsQuery $selectAllTheFreeRoomsQuery)
     {
         $this->selectAllTheFreeRoomsQuery = $selectAllTheFreeRoomsQuery;
     }

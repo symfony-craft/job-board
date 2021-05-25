@@ -2,7 +2,7 @@
 
 namespace App\Application\Query\RetrieveAllTheFreeRooms;
 
-class RetrieveAllTheFreeRoomsViewModel
+class RetrieveAllTheRoomsViewModel
 {
     public string $number;
     public string $name;

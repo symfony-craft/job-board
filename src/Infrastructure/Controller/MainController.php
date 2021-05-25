@@ -5,7 +5,7 @@ namespace App\Infrastructure\Controller;
 use App\Application\Command\BookARoomForAPeriodOfTime\BookARoomForAPeriodOfTimeCommand;
 use App\Application\Command\CommandBus;
 use App\Application\Query\QueryBus;
-use App\Application\Query\RetrieveAllTheFreeRooms\RetrieveAllTheFreeRoomsQuery;
+use App\Application\Query\RetrieveAllTheFreeRooms\RetrieveAllTheRoomsQuery;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -17,7 +17,7 @@ class MainController extends AbstractController
      */
     public function index(QueryBus $queryBus)
     {
-        return $this->json($queryBus->handle(new RetrieveAllTheFreeRoomsQuery()));
+        return $this->json($queryBus->handle(new RetrieveAllTheRoomsQuery()));
     }
 
     /**

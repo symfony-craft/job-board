@@ -2,7 +2,7 @@
 
 namespace App\Application\Query\RetrieveAllTheFreeRooms;
 
-interface SelectAllTheFreeRoomsQuery
+interface SelectAllTheRoomsQuery
 {
     public function execute(): array;
 }

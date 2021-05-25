@@ -2,10 +2,10 @@
 
 namespace App\Tests\Query\RetrieveAllTheFreeRooms;
 
-use App\Application\Query\RetrieveAllTheFreeRooms\RetrieveAllTheFreeRoomsViewModel;
-use App\Application\Query\RetrieveAllTheFreeRooms\SelectAllTheFreeRoomsQuery;
+use App\Application\Query\RetrieveAllTheFreeRooms\RetrieveAllTheRoomsViewModel;
+use App\Application\Query\RetrieveAllTheFreeRooms\SelectAllTheRoomsQuery;
 
-class InMemorySelectAllTheFreeRoomsQuery implements SelectAllTheFreeRoomsQuery
+class InMemorySelectAllTheRoomsQuery implements SelectAllTheRoomsQuery
 {
 
     public array $roomCollection;
@@ -21,7 +21,7 @@ class InMemorySelectAllTheFreeRoomsQuery implements SelectAllTheFreeRoomsQuery
 
         foreach ($this->roomCollection as $room) {
             if($room['status'] === 'free') {
-                $freeRoomViewModels[] = new RetrieveAllTheFreeRoomsViewModel($room['number'], $room['name'], $room['bedNumber'], $room['price']);
+                $freeRoomViewModels[] = new RetrieveAllTheRoomsViewModel($room['number'], $room['name'], $room['bedNumber'], $room['price']);
             }
          }
 

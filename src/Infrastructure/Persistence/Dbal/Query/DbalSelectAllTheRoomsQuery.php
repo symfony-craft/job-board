@@ -2,12 +2,12 @@
 
 namespace App\Infrastructure\Persistence\Dbal\Query;
 
-use App\Application\Query\RetrieveAllTheFreeRooms\RetrieveAllTheFreeRoomsViewModel;
-use App\Application\Query\RetrieveAllTheFreeRooms\SelectAllTheFreeRoomsQuery;
+use App\Application\Query\RetrieveAllTheFreeRooms\RetrieveAllTheRoomsViewModel;
+use App\Application\Query\RetrieveAllTheFreeRooms\SelectAllTheRoomsQuery;
 use Doctrine\DBAL\Connection;
 use Doctrine\ORM\EntityManagerInterface;
 
-class DbalSelectAllTheFreeRoomsQuery implements SelectAllTheFreeRoomsQuery
+class DbalSelectAllTheRoomsQuery implements SelectAllTheRoomsQuery
 {
     private Connection $connection;
 
@@ -22,7 +22,7 @@ class DbalSelectAllTheFreeRoomsQuery implements SelectAllTheFreeRoomsQuery
 
         $roomViewModels = [];
         foreach ($rawRooms as $rawRoom) {
-            $roomViewModels[] = new RetrieveAllTheFreeRoomsViewModel($rawRoom['number'], $rawRoom['name'], $rawRoom['bed_number'], $rawRoom['price']);
+            $roomViewModels[] = new RetrieveAllTheRoomsViewModel($rawRoom['number'], $rawRoom['name'], $rawRoom['bed_number'], $rawRoom['price']);
         }
 
         return $roomViewModels;
