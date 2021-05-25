@@ -21,11 +21,6 @@ services:
         App\Application\Query\QueryHandler:
             tags:
                 - { name: messenger.message_handler, bus: query.bus }
-
-    App\Infrastructure\Bus\QueryBusDispatcher:
-        arguments:
-            $handlers: !tagged ddd.query_handler
-
-    App\Infrastructure\Persistence\Dbal\Query\DbalSelectAllTheFreeRoomsQuery: ~
-
-    App\Application\Query\RetrieveAllTheFreeRooms\SelectAllTheFreeRoomsQuery: '@App\Infrastructure\Persistence\Dbal\Query\DbalSelectAllTheFreeRoomsQuery'
+        App\Application\Command\CommandHandler:
+            tags:
+                - { name: messenger.message_handler, bus: command.bus }

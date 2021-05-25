@@ -67,3 +67,9 @@ build-symfony-project-prod : composer-install-prod cache-clear cache-warm
 to-prod: stop up-prod build-symfony-project-prod
 
 to-dev: stop up build-symfony-project
+
+test:
+	docker-compose run --rm php vendor/bin/simple-phpunit
+
+test-watch:
+	docker-compose run --rm php vendor/bin/phpunit-watcher watch

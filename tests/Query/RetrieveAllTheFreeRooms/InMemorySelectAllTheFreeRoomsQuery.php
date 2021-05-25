@@ -1,10 +1,9 @@
 <?php
 
-namespace App\Tests\InMemory\Query;
+namespace App\Tests\Query\RetrieveAllTheFreeRooms;
 
 use App\Application\Query\RetrieveAllTheFreeRooms\RetrieveAllTheFreeRoomsViewModel;
 use App\Application\Query\RetrieveAllTheFreeRooms\SelectAllTheFreeRoomsQuery;
-use App\Domain\Room;
 
 class InMemorySelectAllTheFreeRoomsQuery implements SelectAllTheFreeRoomsQuery
 {

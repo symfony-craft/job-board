@@ -1,13 +1,12 @@
 <?php
 
-namespace App\Tests;
+namespace App\Tests\Query\RetrieveAllTheFreeRooms;
 
 use App\Application\Query\RetrieveAllTheFreeRooms\RetrieveAllTheFreeRoomsQueryHandler;
 use App\Application\Query\RetrieveAllTheFreeRooms\RetrieveAllTheFreeRoomsQuery;
-use App\Tests\InMemory\Query\InMemorySelectAllTheFreeRoomsQuery;
 use PHPUnit\Framework\TestCase;
 
-class RetrieveAllTheFreeRoomsQueryHandlerTest extends TestCase
+class RetrieveAllTheFreeRoomsTest extends TestCase
 {
     public function testThatItShouldRetrieveAllTheFreeRooms()
     {
@@ -41,7 +40,7 @@ class RetrieveAllTheFreeRoomsQueryHandlerTest extends TestCase
         $selectQuery = new InMemorySelectAllTheFreeRoomsQuery($roomInformations);
         $queryHandler = new RetrieveAllTheFreeRoomsQueryHandler($selectQuery);
 
-        $retrieveAllTheFreeRoomsViewModels = $queryHandler->handle($query);
+        $retrieveAllTheFreeRoomsViewModels = $queryHandler($query);
 
         // Then I should see the name, number of beds and the price of the rooms 45 and 47
         $expectedRoomIds = ['45', '47'];
