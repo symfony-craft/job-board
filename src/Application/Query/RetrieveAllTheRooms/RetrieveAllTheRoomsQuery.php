@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Application\Query\RetrieveAllTheFreeRooms;
+namespace App\Application\Query\RetrieveAllTheRooms;
 
 use App\Application\Query\Query;
 

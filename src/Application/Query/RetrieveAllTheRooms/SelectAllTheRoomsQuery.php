@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Application\Query\RetrieveAllTheFreeRooms;
+namespace App\Application\Query\RetrieveAllTheRooms;
 
 interface SelectAllTheRoomsQuery
 {

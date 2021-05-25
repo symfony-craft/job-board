@@ -2,8 +2,8 @@
 
 namespace App\Infrastructure\Persistence\Dbal\Query;
 
-use App\Application\Query\RetrieveAllTheFreeRooms\RetrieveAllTheRoomsViewModel;
-use App\Application\Query\RetrieveAllTheFreeRooms\SelectAllTheRoomsQuery;
+use App\Application\Query\RetrieveAllTheRooms\RetrieveAllTheRoomsViewModel;
+use App\Application\Query\RetrieveAllTheRooms\SelectAllTheRoomsQuery;
 use Doctrine\DBAL\Connection;
 use Doctrine\ORM\EntityManagerInterface;
 

@@ -5,7 +5,7 @@ namespace App\Infrastructure\Controller;
 use App\Application\Command\BookARoomForAPeriodOfTime\BookARoomForAPeriodOfTimeCommand;
 use App\Application\Command\CommandBus;
 use App\Application\Query\QueryBus;
-use App\Application\Query\RetrieveAllTheFreeRooms\RetrieveAllTheRoomsQuery;
+use App\Application\Query\RetrieveAllTheRooms\RetrieveAllTheRoomsQuery;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
