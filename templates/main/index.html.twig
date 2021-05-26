@@ -3,13 +3,15 @@
 
 {% block body %}
     {% for room in rooms %}
-        <div>
-            {{ room.name }} :
-            {% if room.isFree %}
-                <a href="{{ path('book_the_room', {roomId: room.id}) }}">Book the room</a>
-            {% else %}
-                <a href="{{ path('unbook_the_room', {roomId: room.id}) }}">Unbook the room</a>
-            {% endif %}
-        </div>
+        <p>
+            <div>
+                {{ room.name }} :
+                {% if room.isFree %}
+                    <a href="{{ path('book_the_room', {roomId: room.id}) }}">Book the room</a>
+                {% else %}
+                    <a href="{{ path('unbook_the_room', {roomId: room.id}) }}">Unbook the room</a>
+                {% endif %}
+            </div>
+        </p>
     {% endfor %}
 {% endblock %}
