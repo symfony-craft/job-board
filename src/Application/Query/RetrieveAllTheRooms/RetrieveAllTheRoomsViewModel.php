@@ -4,17 +4,15 @@ namespace App\Application\Query\RetrieveAllTheRooms;
 
 class RetrieveAllTheRoomsViewModel
 {
-    public string $number;
+    public string $id;
     public string $name;
-    public int $bedNumber;
-    public float $price;
+    public bool $isFree;
 
-    public function __construct(string $number, string $name, int $bedNumber, float $price)
+    public function __construct(string $id, string $name, bool $isFree)
     {
-        $this->number = $number;
+        $this->id = $id;
         $this->name = $name;
-        $this->bedNumber = $bedNumber;
-        $this->price = $price;
+        $this->isFree = $isFree;
     }
 
 }

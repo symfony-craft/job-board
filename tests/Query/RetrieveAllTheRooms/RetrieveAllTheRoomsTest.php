@@ -6,9 +6,9 @@ use App\Application\Query\RetrieveAllTheRooms\RetrieveAllTheRoomsQueryHandler;
 use App\Application\Query\RetrieveAllTheRooms\RetrieveAllTheRoomsQuery;
 use PHPUnit\Framework\TestCase;
 
-class RetrieveAllTheFreeRoomsTest extends TestCase
+class RetrieveAllTheRoomsTest extends TestCase
 {
-    public function testThatItShouldRetrieveAllTheFreeRooms()
+    public function testThatItShouldRetrieveAllTheRooms()
     {
         // Given the rooms 45 and 47 are free
         $roomInformations = [
@@ -17,21 +17,21 @@ class RetrieveAllTheFreeRoomsTest extends TestCase
                 'name' => 'La lagune',
                 'bedNumber' => 1,
                 'price' => 45.50,
-                'status' => 'free'
+                'isFree' => true
             ],
             [
                 'number' => '47',
                 'name' => 'La vallée',
                 'bedNumber' => 2,
                 'price' => 90,
-                'status' => 'free'
+                'isFree' => true
             ],
             [
                 'number' => '32',
                 'name' => 'La montagne',
                 'bedNumber' => 4,
                 'price' => 120,
-                'status' => 'occupied'
+                'isFree' => false
             ]
         ];
 
@@ -43,7 +43,7 @@ class RetrieveAllTheFreeRoomsTest extends TestCase
         $retrieveAllTheFreeRoomsViewModels = $queryHandler($query);
 
         // Then I should see the name, number of beds and the price of the rooms 45 and 47
-        $expectedRoomIds = ['45', '47'];
+        $expectedRoomIds = ['45', '47', '32'];
         $this->assertContainsRooms($retrieveAllTheFreeRoomsViewModels, $expectedRoomIds);
 
         foreach ($retrieveAllTheFreeRoomsViewModels as $roomViewModel) {
@@ -52,6 +52,7 @@ class RetrieveAllTheFreeRoomsTest extends TestCase
                     $this->assertEquals($roomInformation['name'], $roomViewModel->name);
                     $this->assertEquals($roomInformation['bedNumber'], $roomViewModel->bedNumber);
                     $this->assertEquals($roomInformation['price'], $roomViewModel->price);
+                    $this->assertEquals($roomInformation['isFree'], $roomViewModel->isFree);
 
                 }
             }

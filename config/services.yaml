@@ -24,3 +24,6 @@ services:
         App\Application\Command\CommandHandler:
             tags:
                 - { name: messenger.message_handler, bus: command.bus }
+        App\Application\Event\EventHandler:
+            tags:
+                - { name: messenger.message_handler, bus: event.bus }

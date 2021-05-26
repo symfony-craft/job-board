@@ -17,7 +17,7 @@ final class Version20210517100003 extends AbstractMigration
     public function up(Schema $schema): void
     {
         $this->addSql('CREATE SEQUENCE room_id_seq INCREMENT BY 1 MINVALUE 1 START 1');
-        $this->addSql('CREATE TABLE room (id INT NOT NULL, name VARCHAR(255) NOT NULL, number VARCHAR(255) NOT NULL, bed_number INT NOT NULL, price DOUBLE PRECISION NOT NULL, status VARCHAR(255) NOT NULL, PRIMARY KEY(id))');
+        $this->addSql('CREATE TABLE room (id INT NOT NULL, name VARCHAR(255) NOT NULL, number VARCHAR(255) NOT NULL, bed_number INT NOT NULL, price DOUBLE PRECISION NOT NULL, is_free BOOLEAN DEFAULT FALSE, PRIMARY KEY(id))');
     }
 
     public function down(Schema $schema): void

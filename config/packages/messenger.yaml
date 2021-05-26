@@ -5,6 +5,7 @@ framework:
     buses:
       command.bus: ~
       query.bus: ~
+      event.bus: ~
 
     transports:
       sync: 'sync://'

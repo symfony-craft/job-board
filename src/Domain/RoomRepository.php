@@ -4,7 +4,7 @@ namespace App\Domain;
 
 interface RoomRepository
 {
-    public function add(Room $room);
+    public function get(string $id): Room;
 
-    public function get(string $number): Room;
+    public function add(Room $room): void;
 }

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Tests\Query\RetrieveAllTheFreeRooms;
+namespace App\Tests\Query\RetrieveAllTheRooms;
 
 use App\Application\Query\RetrieveAllTheRooms\RetrieveAllTheRoomsViewModel;
 use App\Application\Query\RetrieveAllTheRooms\SelectAllTheRoomsQuery;
@@ -17,15 +17,13 @@ class InMemorySelectAllTheRoomsQuery implements SelectAllTheRoomsQuery
 
     public function execute(): array
     {
-         $freeRoomViewModels = [];
+        $freeRoomViewModels = [];
 
         foreach ($this->roomCollection as $room) {
-            if($room['status'] === 'free') {
-                $freeRoomViewModels[] = new RetrieveAllTheRoomsViewModel($room['number'], $room['name'], $room['bedNumber'], $room['price']);
-            }
-         }
+                $freeRoomViewModels[] = new RetrieveAllTheRoomsViewModel($room['number'], $room['name'], $room['bedNumber'], $room['price'], $room['isFree']);
+        }
 
-         return $freeRoomViewModels;
+        return $freeRoomViewModels;
     }
 
 }

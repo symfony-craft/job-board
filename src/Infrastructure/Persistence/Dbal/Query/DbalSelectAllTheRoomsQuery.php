@@ -18,11 +18,11 @@ class DbalSelectAllTheRoomsQuery implements SelectAllTheRoomsQuery
 
     public function execute(): array
     {
-        $rawRooms = $this->connection->executeQuery('SELECT number, name, bed_number, price FROM room r WHERE r.status = \'free\'')->fetchAllAssociative();
+        $rawRooms = $this->connection->executeQuery('SELECT id, name, is_free FROM room r')->fetchAllAssociative();
 
         $roomViewModels = [];
         foreach ($rawRooms as $rawRoom) {
-            $roomViewModels[] = new RetrieveAllTheRoomsViewModel($rawRoom['number'], $rawRoom['name'], $rawRoom['bed_number'], $rawRoom['price']);
+            $roomViewModels[] = new RetrieveAllTheRoomsViewModel($rawRoom['id'], $rawRoom['name'], $rawRoom['is_free']);
         }
 
         return $roomViewModels;
