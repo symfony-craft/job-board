@@ -17,6 +17,15 @@
     "clue/utf8-react": {
         "version": "v1.2.0"
     },
+    "composer/pcre": {
+        "version": "3.0.0"
+    },
+    "composer/semver": {
+        "version": "3.3.2"
+    },
+    "composer/xdebug-handler": {
+        "version": "3.0.3"
+    },
     "doctrine/annotations": {
         "version": "1.13",
         "recipe": {
@@ -110,6 +119,18 @@
             "tests/Behat/DemoContext.php"
         ]
     },
+    "friendsofphp/php-cs-fixer": {
+        "version": "3.8",
+        "recipe": {
+            "repo": "github.com/symfony/recipes",
+            "branch": "master",
+            "version": "3.0",
+            "ref": "be2103eb4a20942e28a6dd87736669b757132435"
+        },
+        "files": [
+            ".php-cs-fixer.dist.php"
+        ]
+    },
     "friendsofphp/proxy-manager-lts": {
         "version": "v1.0.7"
     },
@@ -118,6 +139,12 @@
     },
     "laminas/laminas-code": {
         "version": "4.5.1"
+    },
+    "php-cs-fixer/diff": {
+        "version": "v2.0.2"
+    },
+    "phpstan/phpstan": {
+        "version": "1.5.3"
     },
     "psr/cache": {
         "version": "3.0.0"
@@ -251,6 +278,9 @@
         "files": [
             "config/packages/messenger.yaml"
         ]
+    },
+    "symfony/options-resolver": {
+        "version": "v5.4.3"
     },
     "symfony/polyfill-intl-grapheme": {
         "version": "v1.25.0"

@@ -1,13 +1,16 @@
 <?php
 
-namespace App\Infrastructure\Bus;
+declare(strict_types=1);
 
-use SymfonyCraft\JobBoard\Application\Query\Query;
-use SymfonyCraft\JobBoard\Application\Query\QueryBus;
+namespace SymfonyCraft\JobBoard\Infrastructure\Bus;
+
 use Symfony\Component\Messenger\HandleTrait;
 use Symfony\Component\Messenger\MessageBusInterface;
+use SymfonyCraft\JobBoard\Application\Query\Query;
+use SymfonyCraft\JobBoard\Application\Query\QueryBus;
+use SymfonyCraft\JobBoard\Application\Query\ViewModel;
 
-class MessengerQueryBus implements QueryBus
+final class MessengerQueryBus implements QueryBus
 {
     use HandleTrait {
         handle as handleQuery;
@@ -18,7 +21,7 @@ class MessengerQueryBus implements QueryBus
         $this->messageBus = $queryBus;
     }
 
-    public function handle(Query $query)
+    public function handle(Query $query): ViewModel
     {
         return $this->handleQuery($query);
     }

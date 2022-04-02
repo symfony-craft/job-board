@@ -1,12 +1,14 @@
 <?php
 
-namespace App\Infrastructure\Bus;
+declare(strict_types=1);
 
+namespace SymfonyCraft\JobBoard\Infrastructure\Bus;
+
+use Symfony\Component\Messenger\MessageBusInterface;
 use SymfonyCraft\JobBoard\Application\Event\Event;
 use SymfonyCraft\JobBoard\Application\Event\EventBus;
-use Symfony\Component\Messenger\MessageBusInterface;
 
-class MessengerEventBus implements EventBus
+final class MessengerEventBus implements EventBus
 {
     private MessageBusInterface $eventBus;
 

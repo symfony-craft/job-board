@@ -67,6 +67,17 @@ install-back-dependencies:
 	${DOCKER_COMPOSE} run --rm php composer install
 
 ##
+## Back
+## -----------------------
+##
+
+.PHONY: fix-cs-back
+fix-cs-back: ## Fix backend code styles
+fix-cs-back:
+	$(PHP_RUN) vendor/bin/php-cs-fixer fix --config=config/tests/.php-cs-fixer.dist.php --show-progress=estimating
+
+
+##
 ## Back tests
 ## -----------------------
 ##
@@ -75,6 +86,15 @@ install-back-dependencies:
 use-case-in-memory-back-tests: ## Launch the use case tests for the back
 use-case-in-memory-back-tests:
 	$(PHP_RUN) vendor/bin/behat -p in_memory -s use-case --config="config/tests/behat/behat.yml" --format="pretty" $(file)
+
+.PHONY: static-analyse-back-tests
+static-analyse-back-tests: ## Launch static analyse on back-end code base
+static-analyse-back-tests:
+	$(PHP_RUN) sh -c "vendor/bin/phpstan analyse -c ./config/tests/phpstan/phpstan.neon && vendor/bin/phpstan analyse -c ./config/tests/phpstan/phpstan.infra.neon"
+
+.PHONY: static-analyse-hard-back-tests
+static-analyse-hard-back-tests: ## Check backend static analysis tests (hard mode)
+	$(PHP_RUN) vendor/bin/phpstan analyse -c ./config/tests/phpstan/phpstan.hard.neon
 
 ##
 ## Front dependencies
