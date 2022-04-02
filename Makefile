@@ -30,71 +30,49 @@ re-build-project: down build-project
 up: ## Up the docker containers
 up:
 	${DOCKER_COMPOSE} up -d $(c)
-
+.PHONY: up-prod
+up-prod: ## Up the docker containers for the prod environment
 up-prod:
 	# add services that you need for prod
 	APP_ENV=prod ${DOCKER_COMPOSE} -f docker-compose.yml -f docker-compose.prod.yml up -d nginx php db
 
-down: 
+.PHONY: down
+down: ## Stop and kill the docker containers
+down:
 	${DOCKER_COMPOSE} down
 
-stop: 
+.PHONY: stop
+stop: ## Stop the docker containers
+stop:
 	${DOCKER_COMPOSE} stop $(c)
 
-cmd?=list
-console: 
-	${DOCKER_COMPOSE} run --rm php php bin/console $(cmd)
+##
+## Symfony
+## -----------------------
+##
 
-schema-update:
-	${DOCKER_COMPOSE} run --rm php php bin/console doctrine:schema:update -f
-
-cache-clear:
+.PHONY: cache
+cache: ## Clear the symfony cache
+cache:
 	${PHP_RUN} bin/console cache:clear
 
-composer-require:
-	${DOCKER_COMPOSE} run --rm php composer require $(req)
+##
+## Back dependencies
+## -----------------------
+##
 
-composer-install: 
+.PHONY: install-back-dependencies
+install-back-dependencies: ## Install the back dependencies
+install-back-dependencies:
 	${DOCKER_COMPOSE} run --rm php composer install
 
-composer-install-prod: 
-	${DOCKER_COMPOSE} run --rm php composer install -o
+##
+## Front dependencies
+## -----------------------
+##
 
-yarn-install:
+.PHONY install-front-dependencies:
+install-front-dependencies: ## Install the front dependencies
+install-front-dependencies:
 	# To be log as the node user on the container and be allowed to use the npm/yarn cache (if you have a better way pls tell me)
 	${DOCKER_COMPOSE} run --rm node yarn install
-
-yarn-install-prod:
-	# To be log as the node user on the container and be allowed to use the npm/yarn cache (if you have a better way pls tell me)
-	${DOCKER_COMPOSE} run --rm node yarn install --prod
-
-yarn-build:
-	${DOCKER_COMPOSE} run --rm node yarn build
-
-yarn-watch: 
-	${DOCKER_COMPOSE} run --rm node yarn watch
-
-new-push: 
-
-# Change the name of the remote if you need 
-deploy-test:
-	git push test master
-
-# deploy-prod:
-#	git push prod master
-
-#build-symfony-project : composer-install yarn-install yarn-build cache-clear cache-warm #if you use symfony encore
-build-symfony-project : composer-install cache-clear cache-warm
-
-#build-symfony-project-prod : composer-install-prod yarn-install-prod yarn-build cache-clear cache-warm #if you use symfony encore
-build-symfony-project-prod : composer-install-prod cache-clear cache-warm
-
-to-prod: stop up-prod build-symfony-project-prod
-
-to-dev: stop up build-symfony-project
-
-test:
-	${DOCKER_COMPOSE} run --rm php vendor/bin/simple-phpunit
-
-test-watch:
-	${DOCKER_COMPOSE} run --rm php vendor/bin/phpunit-watcher watch
