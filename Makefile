@@ -67,6 +67,16 @@ install-back-dependencies:
 	${DOCKER_COMPOSE} run --rm php composer install
 
 ##
+## Back tests
+## -----------------------
+##
+
+.PHONY: use-case-in-memory-back-tests
+use-case-in-memory-back-tests: ## Launch the use case tests for the back
+use-case-in-memory-back-tests:
+	$(PHP_RUN) vendor/bin/behat -p in_memory -s use-case --config="config/tests/behat/behat.yml" --format="pretty" $(file)
+
+##
 ## Front dependencies
 ## -----------------------
 ##

@@ -1,0 +1,15 @@
+in_memory:
+    suites:
+        use-case:
+            paths:
+                - '%paths.base%/../../../features/Command'
+            contexts:
+                - SymfonyCraft\JobBoard\Tests\UseCase\Commons\JobContext
+
+                - SymfonyCraft\JobBoard\Tests\UseCase\ApplyToAJobContext
+    extensions:
+        FriendsOfBehat\SymfonyExtension:
+            bootstrap: 'config/tests/behat/bootstrap.php'
+            kernel:
+                class: 'SymfonyCraft\JobBoard\Kernel'
+                environment: 'test_in_memory'
