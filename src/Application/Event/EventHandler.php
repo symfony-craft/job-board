@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Application\Event;
+namespace SymfonyCraft\JobBoard\Application\Event;
 
 interface EventHandler
 {

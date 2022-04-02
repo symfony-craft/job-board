@@ -1,6 +1,6 @@
 # https://github.com/dunglas/symfony-docker
 
-ARG PHP_VERSION=7.4
+ARG PHP_VERSION=8.0
 
 FROM php:${PHP_VERSION}-fpm-alpine AS symfony_php
 
@@ -14,7 +14,7 @@ RUN apk add --no-cache \
         jq \
     ;
 
-ARG APCU_VERSION=5.1.18
+ARG APCU_VERSION=5.1.21
 RUN set -eux; \
 	apk add --no-cache --virtual .build-deps \
 	    $PHPIZE_DEPS \
@@ -68,17 +68,6 @@ WORKDIR /usr/src
 # build for production
 ARG APP_ENV=prod
 
-# Allow to use development versions of Symfony
-ARG STABILITY="stable"
-ENV STABILITY ${STABILITY:-stable}
-
-# Allow to select skeleton version
-ARG SYMFONY_VERSION=""
-
 COPY . .
 
-COPY docker/php/docker-entrypoint.sh /usr/local/bin/docker-entrypoint
-RUN chmod +x /usr/local/bin/docker-entrypoint
-
-ENTRYPOINT ["docker-entrypoint"]
 CMD ["php-fpm"]

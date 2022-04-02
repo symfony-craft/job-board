@@ -2,8 +2,8 @@
 
 namespace App\Infrastructure\Bus;
 
-use App\Application\Query\Query;
-use App\Application\Query\QueryBus;
+use SymfonyCraft\JobBoard\Application\Query\Query;
+use SymfonyCraft\JobBoard\Application\Query\QueryBus;
 use Symfony\Component\Messenger\HandleTrait;
 use Symfony\Component\Messenger\MessageBusInterface;
 

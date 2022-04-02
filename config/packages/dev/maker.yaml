@@ -1,2 +1,2 @@
 maker:
-  root_namespace: 'App\Infrastructure\Persistence'
+  root_namespace: 'SymfonyCraft\JobBoard\Infrastructure\Persistence'

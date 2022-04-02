@@ -2,8 +2,8 @@
 
 namespace App\Infrastructure\Bus;
 
-use App\Application\Event\Event;
-use App\Application\Event\EventBus;
+use SymfonyCraft\JobBoard\Application\Event\Event;
+use SymfonyCraft\JobBoard\Application\Event\EventBus;
 use Symfony\Component\Messenger\MessageBusInterface;
 
 class MessengerEventBus implements EventBus

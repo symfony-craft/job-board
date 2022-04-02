@@ -17,3 +17,7 @@ services:
   nginx:
     ports:
     - 80:80
+
+  db:
+    ports:
+      - 5432:5432

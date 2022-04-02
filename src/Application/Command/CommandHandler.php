@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Application\Command;
+namespace SymfonyCraft\JobBoard\Application\Command;
 
 interface CommandHandler
 {

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Application\Query;
+namespace SymfonyCraft\JobBoard\Application\Query;
 
 interface QueryBus
 {

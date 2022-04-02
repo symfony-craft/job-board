@@ -1,29 +1,26 @@
 parameters:
 
 services:
-    _defaults:
-        autowire: true      # Automatically injects dependencies in your services.
-        autoconfigure: true # Automatically registers your services as commands, event subscribers, etc.
+  _defaults:
+    autowire: true
+    autoconfigure: true
 
-    App\:
-        resource: '../src/'
-        exclude:
-            - '../src/DependencyInjection/'
-            - '../src/Entity/'
-            - '../src/Kernel.php'
-            - '../src/Tests/'
+  SymfonyCraft\JobBoard\:
+    resource: '../src/'
+    exclude:
+      - '../src/Kernel.php'
 
-    App\Infrastructure\Controller\:
-        resource: '../src/Infrastructure/Controller/'
-        tags: ['controller.service_arguments']
+  SymfonyCraft\JobBoard\Infrastructure\Controller\:
+    resource: '../src/Infrastructure/Controller/'
+    tags: [ 'controller.service_arguments' ]
 
-    _instanceof:
-        App\Application\Query\QueryHandler:
-            tags:
-                - { name: messenger.message_handler, bus: query.bus }
-        App\Application\Command\CommandHandler:
-            tags:
-                - { name: messenger.message_handler, bus: command.bus }
-        App\Application\Event\EventHandler:
-            tags:
-                - { name: messenger.message_handler, bus: event.bus }
+  _instanceof:
+    SymfonyCraft\JobBoard\Application\Query\QueryHandler:
+      tags:
+        - { name: messenger.message_handler, bus: query.bus }
+    SymfonyCraft\JobBoard\Application\Command\CommandHandler:
+      tags:
+        - { name: messenger.message_handler, bus: command.bus }
+    SymfonyCraft\JobBoard\Application\Event\EventHandler:
+      tags:
+        - { name: messenger.message_handler, bus: event.bus }

@@ -1,9 +1,9 @@
 <?php
 
-namespace App\Infrastructure\Bus;
+namespace SymfonyCraft\JobBoard\Infrastructure\Bus;
 
-use App\Application\Command\Command;
-use App\Application\Command\CommandBus;
+use SymfonyCraft\JobBoard\Application\Command\Command;
+use SymfonyCraft\JobBoard\Application\Command\CommandBus;
 use Symfony\Component\Messenger\MessageBusInterface;
 
 class MessengerCommandBus implements CommandBus
