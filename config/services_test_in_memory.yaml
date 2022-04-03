@@ -3,5 +3,8 @@ services:
         autowire: true
         autoconfigure: true
 
-    SymfonyCraft\JobBoard\Tests\UseCase\:
-        resource: '../tests/UseCase/*'
+    SymfonyCraft\JobBoard\Tests\:
+        resource: '../tests/'
+
+    SymfonyCraft\JobBoard\Domain\JobCollection: '@SymfonyCraft\JobBoard\Tests\UseCase\Fake\FakeJobCollection'
+    SymfonyCraft\JobBoard\Domain\ApplicantCollection: '@SymfonyCraft\JobBoard\Tests\UseCase\Fake\FakeApplicantCollection'

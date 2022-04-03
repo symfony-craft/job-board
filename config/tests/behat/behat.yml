@@ -5,6 +5,8 @@ in_memory:
                 - '%paths.base%/../../../features/Command'
             contexts:
                 - SymfonyCraft\JobBoard\Tests\UseCase\Commons\JobContext
+                - SymfonyCraft\JobBoard\Tests\UseCase\Commons\CompanyContext
+                - SymfonyCraft\JobBoard\Tests\UseCase\Commons\ApplicantContext
 
                 - SymfonyCraft\JobBoard\Tests\UseCase\ApplyToAJobContext
     extensions:
