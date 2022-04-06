@@ -8,7 +8,7 @@ in_memory:
                 - SymfonyCraft\JobBoard\Tests\UseCase\Commons\CompanyContext
                 - SymfonyCraft\JobBoard\Tests\UseCase\Commons\ApplicantContext
 
-                - SymfonyCraft\JobBoard\Tests\UseCase\ApplyToAJobContext
+                - SymfonyCraft\JobBoard\Tests\UseCase\ApplyForTheJobContext
     extensions:
         FriendsOfBehat\SymfonyExtension:
             bootstrap: 'config/tests/behat/bootstrap.php'

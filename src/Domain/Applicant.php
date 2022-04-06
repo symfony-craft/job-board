@@ -33,7 +33,20 @@ final class Applicant
 
     public function apply(Job $job): void
     {
+        if(in_array($job->getId(), $this->applications)) {
+            return;
+        }
+
         $this->applications[] = $job->getId();
+    }
+
+    public static function fromSnapshot(array $applicantSnapshot): self
+    {
+        $applicant = new self(new Email($applicantSnapshot['email']));
+        $jobIdentifiers = array_map(fn(string $jobId) => new Identifier($jobId), $applicantSnapshot['applications']);
+        $applicant->applications = $jobIdentifiers;
+
+        return $applicant;
     }
 
     /**
@@ -41,9 +54,11 @@ final class Applicant
      */
     public function toSnapshot(): array
     {
+        $jobIds = array_map(fn (Identifier $jobId) => $jobId->get(), $this->applications);
+
         return [
             'email' => $this->email->get(),
-            'applications' => array_map(fn (Identifier $jobId) => $jobId->get(), $this->applications),
+            'applications' => $jobIds,
         ];
     }
 }

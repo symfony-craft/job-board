@@ -8,7 +8,7 @@ use SymfonyCraft\JobBoard\Domain\CompanyCollection;
 
 final class FakeCompanyCollection implements CompanyCollection
 {
-    public function setFixture(array $companySnapshots): void
+    public function setFixture(array $companySnapshotsMap): void
     {
     }
 }

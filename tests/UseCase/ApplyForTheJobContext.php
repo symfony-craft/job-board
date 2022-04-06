@@ -8,7 +8,7 @@ use Behat\Behat\Context\Context;
 use SymfonyCraft\JobBoard\Application\Command\ApplyForTheJob\ApplyForTheJobCommand;
 use SymfonyCraft\JobBoard\Application\Command\CommandBus;
 
-final class ApplyToAJobContext implements Context
+final class ApplyForTheJobContext implements Context
 {
     public function __construct(
         private CommandBus $commandBus

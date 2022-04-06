@@ -10,4 +10,14 @@ final class TestHelper
     {
         return array_map(fn (string $item) => trim($item), explode(',', $string));
     }
+
+    public function toMap(array $array, string $key): array
+    {
+        $arrayMap = [];
+        foreach ($array as $item) {
+            $arrayMap[$item[$key]] = $item;
+        }
+
+        return $arrayMap;
+    }
 }

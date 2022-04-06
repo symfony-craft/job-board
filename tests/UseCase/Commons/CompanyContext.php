@@ -22,7 +22,7 @@ final class CompanyContext implements Context
      */
     public function theseCompanyAreRegistered(TableNode $table): void
     {
-        $companySnapshots = $this->companyTestHelper->buildCompanySnapshotsFromHash($table->getHash());
-        $this->companyCollection->setFixture($companySnapshots);
+        $companySnapshotsMap = $this->companyTestHelper->buildCompanySnapshotsMapFromHash($table->getHash());
+        $this->companyCollection->setFixture($companySnapshotsMap);
     }
 }

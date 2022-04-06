@@ -22,7 +22,7 @@ final class JobContext implements Context
      */
     public function theseJobsAreRegistered(TableNode $table): void
     {
-        $jobSnapshots = $this->jobTestHelper->buildJobSnapshotsFromHash($table->getHash());
-        $this->jobCollection->setFixture($jobSnapshots);
+        $jobSnapshotsMap = $this->jobTestHelper->buildJobSnapshotsMapFromHash($table->getHash());
+        $this->jobCollection->setFixture($jobSnapshotsMap);
     }
 }

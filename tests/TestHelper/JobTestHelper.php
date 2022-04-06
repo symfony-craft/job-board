@@ -7,11 +7,12 @@ namespace SymfonyCraft\JobBoard\Tests\TestHelper;
 final class JobTestHelper
 {
     public function __construct(
+        private TestHelper $testHelper
     ) {
     }
 
-    public function buildJobSnapshotsFromHash(array $jobsHash): array
+    public function buildJobSnapshotsMapFromHash(array $jobsHash): array
     {
-        return $jobsHash;
+        return $this->testHelper->toMap($jobsHash, 'id');
     }
 }

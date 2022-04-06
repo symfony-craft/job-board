@@ -11,14 +11,21 @@ final class ApplicantTestHelper
     ) {
     }
 
+    public function buildApplicantSnapshotsMapFromHash(array $applicantsHash): array
+    {
+        $applicantSnapshots = $this->buildApplicantSnapshotsFromHash($applicantsHash);
+
+        return $this->testHelper->toMap($applicantSnapshots, 'email');
+    }
+
     public function buildApplicantSnapshotsFromHash(array $applicantsHash): array
     {
-        $applicantSnapshots = [];
+        $applicantSnapshotsMap = [];
         foreach ($applicantsHash as $applicantItem) {
             $applicantItem['applications'] = $this->testHelper->stringToArray($applicantItem['applications']);
-            $applicantSnapshots[] = $applicantItem;
+            $applicantSnapshotsMap[] = $applicantItem;
         }
 
-        return $applicantSnapshots;
+        return $applicantSnapshotsMap;
     }
 }

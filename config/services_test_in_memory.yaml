@@ -6,5 +6,9 @@ services:
     SymfonyCraft\JobBoard\Tests\:
         resource: '../tests/'
 
-    SymfonyCraft\JobBoard\Domain\JobCollection: '@SymfonyCraft\JobBoard\Tests\UseCase\Fake\FakeJobCollection'
-    SymfonyCraft\JobBoard\Domain\ApplicantCollection: '@SymfonyCraft\JobBoard\Tests\UseCase\Fake\FakeApplicantCollection'
+    SymfonyCraft\JobBoard\Domain\JobCollection:
+        '@SymfonyCraft\JobBoard\Tests\UseCase\Fake\FakeJobCollection'
+    SymfonyCraft\JobBoard\Domain\ApplicantCollection:
+        '@SymfonyCraft\JobBoard\Tests\UseCase\Fake\FakeApplicantCollection'
+    SymfonyCraft\JobBoard\Domain\CompanyCollection:
+        '@SymfonyCraft\JobBoard\Tests\UseCase\Fake\FakeCompanyCollection'
