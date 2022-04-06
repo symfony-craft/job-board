@@ -5,6 +5,9 @@ services:
     autowire: true
     autoconfigure: true
 
+  SymfonyCraft\JobBoard\Tests\:
+    resource: '../tests/'
+
   SymfonyCraft\JobBoard\:
     resource: '../src/'
     exclude:
@@ -24,3 +27,10 @@ services:
     SymfonyCraft\JobBoard\Application\Event\EventHandler:
       tags:
         - { name: messenger.message_handler, bus: event.bus }
+
+  SymfonyCraft\JobBoard\Domain\JobCollection:
+    '@SymfonyCraft\JobBoard\Infrastructure\Persistence\InMemory\InMemoryJobCollection'
+  SymfonyCraft\JobBoard\Domain\ApplicantCollection:
+    '@SymfonyCraft\JobBoard\Tests\UseCase\Fake\FakeApplicantCollection'
+  SymfonyCraft\JobBoard\Domain\CompanyCollection:
+    '@SymfonyCraft\JobBoard\Tests\UseCase\Fake\FakeCompanyCollection'
