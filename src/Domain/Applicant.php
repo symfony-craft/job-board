@@ -33,7 +33,7 @@ final class Applicant
 
     public function apply(Job $job): void
     {
-        if(in_array($job->getId(), $this->applications)) {
+        if (in_array($job->getId(), $this->applications)) {
             return;
         }
 
@@ -43,7 +43,7 @@ final class Applicant
     public static function fromSnapshot(array $applicantSnapshot): self
     {
         $applicant = new self(new Email($applicantSnapshot['email']));
-        $jobIdentifiers = array_map(fn(string $jobId) => new Identifier($jobId), $applicantSnapshot['applications']);
+        $jobIdentifiers = array_map(fn (string $jobId) => new Identifier($jobId), $applicantSnapshot['applications']);
         $applicant->applications = $jobIdentifiers;
 
         return $applicant;

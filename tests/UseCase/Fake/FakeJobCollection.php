@@ -14,7 +14,7 @@ final class FakeJobCollection implements JobCollection
 
     public function get(Identifier $id): Job
     {
-        if(isset($this->jobSnapshotsMap[$id->get()])) {
+        if (isset($this->jobSnapshotsMap[$id->get()])) {
             return Job::fromSnapshot($this->jobSnapshotsMap[$id->get()]);
         }
 

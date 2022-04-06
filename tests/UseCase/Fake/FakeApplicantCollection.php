@@ -14,7 +14,7 @@ final class FakeApplicantCollection implements ApplicantCollection
 
     public function find(Email $email): ?Applicant
     {
-        if(isset($this->applicantSnapshotsMap[$email->get()])) {
+        if (isset($this->applicantSnapshotsMap[$email->get()])) {
             return Applicant::fromSnapshot($this->applicantSnapshotsMap[$email->get()]);
         }
 
@@ -23,7 +23,6 @@ final class FakeApplicantCollection implements ApplicantCollection
 
     public function add(Applicant $applicant): void
     {
-
         $applicantSnapshot = $applicant->toSnapshot();
         $this->applicantSnapshotsMap[$applicantSnapshot['email']] = $applicantSnapshot;
     }
